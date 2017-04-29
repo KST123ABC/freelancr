@@ -17,7 +17,9 @@ from django.conf.urls import url
 from django.contrib import admin
 
 urlpatterns = [
+    #Admin
     url(r'^admin/', admin.site.urls),
+#############################     ALL USERS    #############################################
 
     url(r'^registration/$', views.register, name='registration'),
 
@@ -25,21 +27,30 @@ urlpatterns = [
 
     url(r'^logout/$', views.logout, name='logout'),
 
+###########################      INFO ABOUT FREELANCER      ###############################
+
     url(r'^freelancer/$', views.freelancer, name='freelancer'),
 
     url(r'^freelancer_info/$', views.freelancer_info, name='freelancer_info'),
 
     url(r'^skills/$', views.skills, name='skills'),
 
-    url(r'^like/$', views.like, name='like'),
+###################       FUNCTIONS ONLY FREELANCER CAN USE        ########################
 
     url(r'^super_like/$', views.super_like, name='super_like'),
+
+
+##########################       INFO ABOUT COMPANY         ################################
 
     url(r'^company/$', views.company, name='company'),
 
     url(r'^company_info/$', views.company_info, name='company_info'),
 
+##########################      FUCTIONS ALL USERS CAN USE        ############################
+
+    url(r'^like/$', views.like, name='like'),
+
     url(r'^swipe_left/$', views.swipe_left, name='swipe_left'),
 
-    url(r'^swipe_right/$', views.swipe_right, name='swipe_right'),
+    url(r'^swipe_right/$', views.swipe_right, name='swipe_right')
 ]
