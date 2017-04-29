@@ -1,8 +1,8 @@
-import self
+import self as self
 from django.db import models
 from django.core.validators import *
 from dj.choices import Choices, Choice
-from django.db.models import ImageField
+from django.db.models import ImageField, BooleanField, TextField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth import authenticate
 from django import forms
@@ -10,8 +10,6 @@ from django.contrib.auth.models import User
 
 import os
 # Create your models here.
-<<<<<<< HEAD
-
 
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.id), filename)
@@ -22,10 +20,10 @@ class Gender(Choices):
     not_specified = Choice("not specified")
 
 class ProfileInfo(models.Model):
-	user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE)
-    image1 = ImageField(upload_to="media", blank=True, null=True)
-    image2 = ImageField(upload_to="media", blank=True, null=True)
-    image3 = ImageField(upload_to="media", blank=True, null=True)
+    user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE),
+    image1 = ImageField(upload_to="media", blank=True, null=True),
+    image2 = ImageField(upload_to="media", blank=True, null=True),
+    image3 = ImageField(upload_to="media", blank=True, null=True),
     #False -- talent, True -- hire
     identity = BooleanField(default = False)
     # Freelancer field
@@ -64,7 +62,7 @@ class ProfileInfo(models.Model):
     email = models.EmailField(default="",primary_key=True)
 
 class Skill(models.Model):
-    skillName = Textfield(primary_key = True)
+    skillName = TextField(primary_key = True)
 
 '''
 =======
