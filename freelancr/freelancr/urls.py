@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+
 urlpatterns = [
     #Admin
     url(r'^admin/', admin.site.urls),
+
+    url(r'^$', views.index, name='index'),
 #############################     ALL USERS    #############################################
 
     url(r'^registration/$', views.register, name='registration'),
