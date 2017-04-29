@@ -55,5 +55,7 @@ urlpatterns = [
 
     url(r'^swipe_left/$', views.swipe_left, name='swipe_left'),
 
-    url(r'^swipe_right/$', views.swipe_right, name='swipe_right')
+    url(r'^swipe_right/$', views.swipe_right, name='swipe_right'),
+
+    url(r'^matched/$', views.matched, name='matched')
 ]
