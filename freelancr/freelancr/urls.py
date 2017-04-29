@@ -18,4 +18,28 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    url(r'^registration/$', views.register, name='registration'),
+
+    url(r'^login/$', views.login, name='login'),
+
+    url(r'^logout/$', views.logout, name='logout'),
+
+    url(r'^freelancer/$', views.freelancer, name='freelancer'),
+
+    url(r'^freelancer_info/$', views.freelancer_info, name='freelancer_info'),
+
+    url(r'^skills/$', views.skills, name='skills'),
+
+    url(r'^like/$', views.like, name='like'),
+
+    url(r'^super_like/$', views.super_like, name='super_like'),
+
+    url(r'^company/$', views.company, name='company'),
+
+    url(r'^company_info/$', views.company_info, name='company_info'),
+
+    url(r'^swipe_left/$', views.swipe_left, name='swipe_left'),
+
+    url(r'^swipe_right/$', views.swipe_right, name='swipe_right'),
 ]
