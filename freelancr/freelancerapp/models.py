@@ -9,7 +9,6 @@ from django import forms
 
 import os
 # Create your models here.
-
 class Gender(Choices):
     male = Choice("male")
     female = Choice("female")
