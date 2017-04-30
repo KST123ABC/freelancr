@@ -9,6 +9,7 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 
 
 # Create your views here.
