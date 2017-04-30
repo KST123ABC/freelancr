@@ -33,7 +33,7 @@ def user_login(request):
 	        # Redirect to a success page.
 	        messages.success(request, 'Login Success')
 	        print("Login Success\n")
-	        return HttpResponseRedirect('/freelancr')
+	        return HttpResponseRedirect('/dashboard')
 	    else:
 	        # Return an 'invalid login' error message.
 	        messages.error(request, "This account has been disabled. Please contact the administrator if you think this is an error.")
@@ -55,3 +55,12 @@ def register(request):
 		else:
 			return render(request, 'freelancr/register')
 
+def dashboard(request):
+	context = dict()
+	user = request.user
+	if hasattr(user, "company"):
+		context['based'] = 'index.html'
+		return render(request, 'freelancerapp/dashboard_company.html', context)
+	else:
+		context['based'] = 'index.html'
+		return render(request, 'freelancerapp/dashboard_freelancer.html', context)
