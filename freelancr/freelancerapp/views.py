@@ -33,7 +33,7 @@ def user_login(request):
 	        # Redirect to a success page.
 	        messages.success(request, 'Login Success')
 	        print("Login Success\n")
-	        return HttpResponseRedirect('/dashboard')
+	        return HttpResponseRedirect('/freelancr/dashboard')
 	    else:
 	        # Return an 'invalid login' error message.
 	        messages.error(request, "This account has been disabled. Please contact the administrator if you think this is an error.")

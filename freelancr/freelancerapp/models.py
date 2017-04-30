@@ -97,6 +97,12 @@ class UserSkill(models.Model):
                         pairs.append(tuple(company, freelancer))
         return pairs;
 
+    def get_user(self):
+        return str(self.user)
+    
+    def get_skill(self):
+        return str(self.skill)
+        
 # Record the response
 class Match(models.Model):
     user_1 = models.ForeignKey(ProfileInfo, related_name='company',on_delete=models.CASCADE)
