@@ -60,6 +60,13 @@ class ProfileInfo(models.Model):
 class Skill(models.Model):
     skillName = TextField(primary_key = True)
 
+class UserSkill(models.Model):
+    user = models.ForeignKey(ProfileInfo)
+    skill = models.ForeignKey(Skill)
+
+class Match(models.Model):
+    user_1 = models.ForeignKey(ProfileInfo, related_name='company')
+    user_2 = models.ForeignKey(ProfileInfo, related_name='freelancer')
 '''
 =======
 >>>>>>> 1b375eed7744b0d194490ec907880d0433c9faaf
