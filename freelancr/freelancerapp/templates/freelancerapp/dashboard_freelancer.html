@@ -1,4 +1,4 @@
-{% extends '/freelancr' %}
+{% extends 'freelancerapp/index.html' %}
 {% block content %}
 <div class ="text-center" id="tinderslide">
     <ul>
@@ -10,10 +10,9 @@
     </ul>
 <div id="profile">
     <h4> Name: {% for usr in Curr %} {{usr.name}}{% endfor %}</h4>
-    <h4> Description: { % for usr in Curr %} {{% usr.details %}}</h4>
+    <h4> Description: { % for usr in Curr %} {{ usr.details }}</h4>
     <h4> Phone Number: {% for usr in Curr %}{{ usr.phoneNumber }}{% endfor %}<br/></h4>
     <h4> E-mail: {% for usr in Curr %}{{ usr.email }}{% endfor %}<br/></h4>
-    <h4> Skills Seeking: <br>  {% for skills in usrSkills }{{skills}}{% endfor %}<br/></h4>
 </div>
 </div>
 {% endblock %}
