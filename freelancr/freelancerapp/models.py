@@ -84,10 +84,28 @@ class UserSkill(models.Model):
     user = models.ForeignKey(ProfileInfo)
     skill = models.ForeignKey(Skill)
 
+    def pair_stack(self):
+        pairs = []
+        companys = ProfileInfo.object.filter(identity = True)
+        freelancers = ProfileInfo.object.filter(identity = False)
+        for company in companys:
+            company_skills = UserSkill.object.filter(user = company) #grab company skills
+            for company_skill in company_skills:
+                for freelancer in freelancers:
+                    freelancer_skills = UserSkill.object.filter(user = freelancer)
+                    if company_skill in freelancer_skills:
+                        pairs.append(tuple(company, freelancer))
+        return pairs;
+
+# Record the response
 class Match(models.Model):
     user_1 = models.ForeignKey(ProfileInfo, related_name='company',on_delete=models.CASCADE)
     user_2 = models.ForeignKey(ProfileInfo, related_name='freelancer',on_delete=models.CASCADE)
     is_match = BooleanField(default=False)
+
+
+
+
 
 '''
 =======
