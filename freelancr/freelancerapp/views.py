@@ -20,14 +20,14 @@ def home(request):
     if request.user.is_authenticated():
         return render(request, 'accounts/home.html')
 
-"""
+
 def user_login(request):
     """
-"""
+
     Where the login information is being authenticated for all possible users.
 
     This was not named 'login' because that would conflict with built-in Django functions.
-    """"""
+    """
     context = RequestContext(request)
     if request.method == 'POST':
         username = request.POST['username']
@@ -51,22 +51,22 @@ def user_login(request):
 
 @login_required
 def log_away(request):
-""""""
+    """
     Essentially just an expansion on the basic logout() functionality, this will
     both log out a user and send them to the homepage.
 
     Login_required is turned on because logging out someone not logged in would cause issues.
 
     This was not named 'logout' because that would conflict with built-in Django functions.
-    """"""
+    """
     logout(request)
     return redirect('/')
 
 
-def registration(request):
-    """"""
+def register(request):
+    """
     Where the patient's form is being used to create a new instance of the patient
-    """"""
+    """
 
     if request.method == 'POST':
         user_form = RegistrationForm(request.POST, prefix="user")
@@ -83,11 +83,11 @@ def registration(request):
 
 @login_required
 def profile(request):
-    """"""
+    """
     Where the profile information is being rendered for display to the patient.
 
     Only viewable by the patient.
-    """"""
+    """
 
     context = dict()
 
@@ -115,11 +115,11 @@ def profile(request):
         return HttpResponse("You don't have permission to be here!")
 
 class FreelancerUpdate(UpdateView):
-    """"""
+    """
     Updates the currently logged-in patient's profile.
 
     Only viewable by patients.
-    """"""
+    """
 
     form_class = FreelancerUpdateForm
     model = Freelancer
@@ -132,11 +132,11 @@ class FreelancerUpdate(UpdateView):
 
 
 class CompanyUpdate(UpdateView):
-    """"""
+    """
     Updates the currently logged-in patient's profile.
 
     Only viewable by patients.
-    """"""
+    """
 
     form_class = CompanyUpdateForm
     model = Company
@@ -157,4 +157,3 @@ class swipe_right(UpdateView):
     template_name = 'dashboard.html'
     success_url = 'dashboard.html'
 
-"""
