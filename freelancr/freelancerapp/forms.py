@@ -32,3 +32,30 @@ class LoginForm(ModelForm):
             'email',
             'password'
         )
+class FreelancerUpdateForm(ModelForm):
+    class Meta:
+        model = User
+        fields = (
+        'image1',
+        'image2',
+        'image3',
+        'firstName',
+        'middleInitial',
+        'lastName',
+        'phoneNumber',
+        'email',
+        'password'
+        )
+
+class CompanyUpdateForm(ModelForm):
+    class Meta:
+        model = User
+        fields = (
+        'image1',
+        'image2',
+        'image3',
+        'name',
+        'details',
+        'email',
+        'password'
+        )
