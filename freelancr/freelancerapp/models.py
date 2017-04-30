@@ -65,8 +65,8 @@ class UserSkill(models.Model):
     skill = models.ForeignKey(Skill)
 
 class Match(models.Model):
-    user_1 = models.ForeignKey(ProfileInfo, related_name='company')
-    user_2 = models.ForeignKey(ProfileInfo, related_name='freelancer')
+    user_1 = models.ForeignKey(ProfileInfo, related_name='company',on_delete=models.CASCADE)
+    user_2 = models.ForeignKey(ProfileInfo, related_name='freelancer',on_delete=models.CASCADE)
 '''
 =======
 >>>>>>> 1b375eed7744b0d194490ec907880d0433c9faaf
