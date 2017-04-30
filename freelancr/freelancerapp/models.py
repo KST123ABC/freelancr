@@ -1,7 +1,7 @@
-import self as self
+
 from django.db import models
 from django.core.validators import *
-from dj.choices import Choices, Choice
+
 from django.db.models import ImageField, BooleanField, TextField
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth import authenticate
@@ -11,13 +11,6 @@ from django.contrib.auth.models import User
 import os
 # Create your models here.
 
-def get_image_path(instance, filename):
-    return os.path.join('photos', str(instance.id), filename)
-
-class Gender(Choices):
-    male = Choice("male")
-    female = Choice("female")
-    not_specified = Choice("not specified")
 
 class ProfileInfo(models.Model):
     user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE),
@@ -31,7 +24,7 @@ class ProfileInfo(models.Model):
         max_length=50,
         default="",
         validators=[RegexValidator(regex='[a-zA-Z]$', message='Only letters can be input')],
-        primary_key = True
+
     )
     middleInitial = models.CharField(
         max_length=1,
@@ -43,14 +36,17 @@ class ProfileInfo(models.Model):
         max_length=50,
         default="",
         validators=[RegexValidator(regex='[a-zA-Z]$', message='Only letters can be input')],
-        primary_key=True
+
     )
-    gender = Gender.from_id(self.gender)
+    gender = models.CharField(
+        max_length=10,
+        default=""
+    )
     # Company field
     name = models.CharField(
         max_length=50,
         default="",
-        primary_key=True
+
     )
     details = models.CharField(
         max_length=500,
@@ -58,8 +54,8 @@ class ProfileInfo(models.Model):
         null = True
     )
     # Common field
-    phoneNumber = PhoneNumberField(primary_key=True)
-    email = models.EmailField(default="",primary_key=True)
+    phoneNumber = PhoneNumberField()
+    email = models.EmailField(default="")
 
 class Skill(models.Model):
     skillName = TextField(primary_key = True)
