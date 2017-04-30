@@ -38,3 +38,8 @@ def user_login(request):
 	        print("Login Fail\n")
 	        return HttpResponseRedirect('/freelancr/login')
 	return render(request, 'freelancerapp/login.html')
+
+def logoff(request):
+	logout(request)
+	print("Log off Success")
+	return HttpResponseRedirect("/freelancr")
