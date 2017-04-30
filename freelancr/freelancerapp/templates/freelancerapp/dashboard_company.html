@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block head %}
+    <script src="js/profile.js"></script>
+{% endblock %}
+{% block body %}
+<div class ="text-center" id="image-wrapper">
+    <div id="image">
+        {% for usr in Curr%}{{usr.image}}{% endfor %}
+    </div>
+<div id="profile">
+    <h4> First Name: {% for usr in Curr %}{{ usr.firstName }}{% endfor %}<br/></h4>
+    <h4> Middle Initial: {% for usr in Curr %}{{ usr.middleInitial }}{% endfor %}<br/></h4>
+    <h4> Last Name: {% for usr in Curr %}{{ usr.lastName }}{% endfor %}<br/></h4>
+    <h4> Gender: {% for usr in Curr %}{{ usr.gender }}{% endfor %}<br/></h4>
+    <h4> Phone Number: {% for usr in Curr %}{{ usr.phoneNumber }}{% endfor %}<br/></h4>
+    <h4> E-mail: {% for usr in Curr %}{{ usr.email }}{% endfor %}<br/></h4>
+    <h4> Skills: <br>  {% for skills in usrSkills }{{skills}}{% endfor %}<br/></h4>
+</div>
+</div>
+
+{% endblock %}
