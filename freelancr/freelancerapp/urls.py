@@ -19,7 +19,5 @@ from . import views
 
 urlpatterns = [
     #Admin
-
-    url(r'^$', views.home, name='home'),
    
 ]

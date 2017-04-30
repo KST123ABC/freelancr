@@ -17,7 +17,7 @@ def home(request):
     The display of this is different for each of the above groups.
     """
     # Is the current user logged in?
-    if request.user.is_authenticated():
-        return render(request, 'accounts/home.html')
+    #if request.user.is_authenticated():
+    return render(request, 'freelancerapp/index.html')
 
 

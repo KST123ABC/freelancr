@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from freelancerapp.views import *
 
 
 urlpatterns = [
-    #Admin
+    #Main homepage
+    url(r'^$', home, name='home'),
+
     url(r'^admin/', admin.site.urls),
 
     url(r'^freelancr/', include('freelancerapp.urls'), name='home'),
