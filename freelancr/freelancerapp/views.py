@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response, redirect, loader
-from django.http import HttpResponse
+from django.http import *
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import FormView, UpdateView, DeleteView
@@ -21,13 +21,20 @@ def home(request):
     #if request.user.is_authenticated():
     return render(request, 'freelancerapp/index.html')
 
-
 def user_login(request):
-	'''
-	current_profile_info = request.user
-	if (not current_profile_info.is_anonymous()):
-		current_profile_info = ProfileInfo.objects.get(user = current_profile_info)
-	else:
-		current_profile_info = None
-	'''
+	if request.method == "POST":
+	    username = request.POST['username']
+	    password = request.POST['password']
+	    user = authenticate(request, username=username, password=password)
+	    if user is not None:
+	        login(request, user)
+	        # Redirect to a success page.
+	        messages.success(request, 'Login Success')
+	        print("Login Success\n")
+	        return HttpResponseRedirect('/freelancr')
+	    else:
+	        # Return an 'invalid login' error message.
+	        messages.error(request, "This account has been disabled. Please contact the administrator if you think this is an error.")
+	        print("Login Fail\n")
+	        return HttpResponseRedirect('/freelancr/login')
 	return render(request, 'freelancerapp/login.html')

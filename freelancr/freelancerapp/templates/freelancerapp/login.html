@@ -1,7 +1,7 @@
 {% extends 'freelancerapp/index.html' %}
 
 {% block content %}
-<form id="login_form" method="post" action="/login/" class = "text-center">
+<form id="login_form" method="post" action="/freelancr/login/" class = "text-center">
             {% csrf_token %}
             Username: <input type="text" name="username" value="" size="50" />
             <br />
