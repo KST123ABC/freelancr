@@ -20,7 +20,6 @@ from freelancerapp.views import *
 
 urlpatterns = [
     #Main homepage
-    url(r'^$', home, name='home'),
 
     url(r'^admin/', admin.site.urls),
 

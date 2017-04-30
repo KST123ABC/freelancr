@@ -1,6 +1,7 @@
-{% extends 'index.html' %}
-{% block body %}
-<form id="login_form" method="post" action="/login/">
+{% extends 'freelancerapp/index.html' %}
+
+{% block content %}
+<form id="login_form" method="post" action="/login/" class = "text-center">
             {% csrf_token %}
             Username: <input type="text" name="username" value="" size="50" />
             <br />
@@ -9,4 +10,4 @@
             <br/>
             <input type="submit" value="Submit" />
         </form>
-{% end block %}
+{% endblock %}

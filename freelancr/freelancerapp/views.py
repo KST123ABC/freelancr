@@ -6,6 +6,7 @@ from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -21,3 +22,12 @@ def home(request):
     return render(request, 'freelancerapp/index.html')
 
 
+def user_login(request):
+	'''
+	current_profile_info = request.user
+	if (not current_profile_info.is_anonymous()):
+		current_profile_info = ProfileInfo.objects.get(user = current_profile_info)
+	else:
+		current_profile_info = None
+	'''
+	return render(request, 'freelancerapp/login.html')
