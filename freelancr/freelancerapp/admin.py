@@ -12,5 +12,11 @@ class SkillAdmin(admin.ModelAdmin):
 	class Meta:
 		model = Skill
 
+class UserSkillAdmin(admin.ModelAdmin):
+        list_display = ["get_user", "get_skill"]
+        class Meta:
+                model = UserSkill
+
 admin.site.register(ProfileInfo, ProfileInfoAdmin)
 admin.site.register(Skill, SkillAdmin)
+admin.site.register(UserSkill, UserSkillAdmin)
