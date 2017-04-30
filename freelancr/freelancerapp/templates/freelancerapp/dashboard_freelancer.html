@@ -1,8 +1,9 @@
 {% extends 'index.html' %}
 {% block head %}
     <script src="../../static/js/profile.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/btn.css">
 {% endblock %}
-{% block body %}
+{% block content %}
 <div class ="text-center" id="image-wrapper">
     <div id="image">
         {% for usr in Curr%}{{usr.image}}{% endfor %}
@@ -15,5 +16,12 @@
     <h4> Skills Seeking: <br>  {% for skills in usrSkills }{{skills}}{% endfor %}<br/></h4>
 </div>
 </div>
-
+<div class = "row col-md-12">
+    <div class = "col-md-6">
+        <input type="submit" value="Yes" class="btn btn-default" id="false"/>
+    </div>
+    <div class = "col-md-6">
+        <input type="submit" value="No" class="btn btn-default" id="true"/>
+    </div>
+</div>
 {% endblock %}
