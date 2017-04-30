@@ -22,4 +22,5 @@ urlpatterns = [
    url(r'^$', views.home, name='home'),
    url(r'^login/$', views.user_login, name="login_page"),
    url(r'^logoff/$', views.logoff, name="redirect_page"),
+   url(r'^register/$', views.register, name="register"),
 ]

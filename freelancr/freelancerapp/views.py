@@ -1,5 +1,7 @@
 from django.shortcuts import render, render_to_response, redirect, loader
 from django.http import *
+
+from freelancr.freelancerapp.forms import RegistrationForm
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import FormView, UpdateView, DeleteView
@@ -43,3 +45,12 @@ def logoff(request):
 	logout(request)
 	print("Log off Success")
 	return HttpResponseRedirect("/freelancr")
+
+def register(request):
+	if request.method == 'POST':
+		user_form = RegistrationForm(request.POST, prefix="user")
+		if user_form.is_valid():
+			user_form.save(commit=False)
+			return redirect('/')
+		else:
+			return render(request, 'freelancr/register')
