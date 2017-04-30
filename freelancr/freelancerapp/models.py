@@ -14,9 +14,7 @@ import os
 
 class ProfileInfo(models.Model):
     user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE)
-    image1 = ImageField(upload_to="media", blank=True, null=True)
-    image2 = ImageField(upload_to="media", blank=True, null=True)
-    image3 = ImageField(upload_to="media", blank=True, null=True)
+    image = ImageField(upload_to="media", blank=True, null=True)
     #False -- talent, True -- hire
     identity = BooleanField(default = False)
     # Freelancer field
@@ -89,6 +87,8 @@ class UserSkill(models.Model):
 class Match(models.Model):
     user_1 = models.ForeignKey(ProfileInfo, related_name='company',on_delete=models.CASCADE)
     user_2 = models.ForeignKey(ProfileInfo, related_name='freelancer',on_delete=models.CASCADE)
+    is_match = BooleanField(default=False)
+
 '''
 =======
 >>>>>>> 1b375eed7744b0d194490ec907880d0433c9faaf

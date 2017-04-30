@@ -10,9 +10,7 @@ class UserForm(ModelForm):
 class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('image1',
-                  'image2',
-                  'image3',
+        fields = ('image',
                   'identity',
                   'firstName',
                   'middleInitial',
@@ -37,8 +35,6 @@ class FreelancerUpdateForm(ModelForm):
         model = User
         fields = (
         'image1',
-        'image2',
-        'image3',
         'firstName',
         'middleInitial',
         'lastName',
@@ -51,9 +47,7 @@ class CompanyUpdateForm(ModelForm):
     class Meta:
         model = User
         fields = (
-        'image1',
-        'image2',
-        'image3',
+        'image',
         'name',
         'details',
         'email',

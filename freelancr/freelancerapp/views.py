@@ -19,7 +19,7 @@ def home(request):
     """
     # Is the current user logged in?
     #if request.user.is_authenticated():
-    return render(request, 'freelancerapp/index.html')
+    return render(request, 'freelancerapp/base.html')
 
 def user_login(request):
 	if request.method == "POST":
