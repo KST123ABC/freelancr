@@ -1,21 +1,63 @@
 {% extends 'index.html' %}
-{% block head %}
-    <script src="../../static/js/profile.js"></script>
 {% endblock %}
 {% block content %}
-<div class ="text-center" id="image-wrapper">
-    <div id="image">
-        {% for usr in Curr%}{{usr.image}}{% endfor %}
+<div class="wrap">
+        <!-- start jtinder container -->
+        <div id="tinderslide">
+            <ul>
+                <li class="pane1">
+                    <div class="img"></div>
+                    <div>Miami Beach</div>
+                    <div class="like"></div>
+                    <div class="dislike"></div>
+                </li>
+                <li class="pane2">
+                    <div class="img"></div>
+                    <div>San Francisco</div>
+                    <div class="like"></div>
+                    <div class="dislike"></div>
+                </li>
+                <li class="pane3">
+                    <div class="img"></div>
+                    <div>Chicago</div>
+                    <div class="like"></div>
+                    <div class="dislike"></div>
+                </li>
+                <li class="pane4">
+                    <div class="img"></div>
+                    <div>New York</div>
+                    <div class="like"></div>
+                    <div class="dislike"></div>
+                </li>
+                <li class="pane5">
+                    <div class="img"></div>
+                    <div>Beach</div>
+                    <div class="like"></div>
+                    <div class="dislike"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- end jtinder container -->
     </div>
-<div id="profile">
-    <h4> First Name: {% for usr in Curr %}{{ usr.firstName }}{% endfor %}<br/></h4>
-    <h4> Middle Initial: {% for usr in Curr %}{{ usr.middleInitial }}{% endfor %}<br/></h4>
-    <h4> Last Name: {% for usr in Curr %}{{ usr.lastName }}{% endfor %}<br/></h4>
-    <h4> Gender: {% for usr in Curr %}{{ usr.gender }}{% endfor %}<br/></h4>
-    <h4> Phone Number: {% for usr in Curr %}{{ usr.phoneNumber }}{% endfor %}<br/></h4>
-    <h4> E-mail: {% for usr in Curr %}{{ usr.email }}{% endfor %}<br/></h4>
-    <h4> Skills: <br>  {% for skills in usrSkills }{{skills}}{% endfor %}<br/></h4>
-</div>
+    <!-- end padding container -->
+
+    <!-- jTinder trigger by buttons  -->
+    <div class="actions">
+        <a href="#" class="dislike"><i></i></a>
+        <a href="#" class="like"><i></i></a>
+    </div>
+
+    <!-- jTinder status text  -->
+    <div id="status"></div>
+
+    <!-- jQuery lib -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- transform2d lib -->
+    <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+    <!-- jTinder lib -->
+    <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+    <!-- jTinder initialization script -->
+    <script type="text/javascript" src="js/main.js"></script>
 </div>
 
 {% endblock %}
