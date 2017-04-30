@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
+         <link rel="stylesheet" type="text/css"  href="{% static '/css/jTinder.css' %}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -85,7 +86,9 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static '/sticky-footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/css/sticky-footer.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/css/btn.css' %}" />
+
   </head>
   <body>
 	<div id="wrap">
@@ -109,6 +112,19 @@
 			<p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
 		</div>
 	</div>
+
+        <!-- transform2d lib -->
+<script type="text/javascript" src="js/jquery.transform2d.js"></script>
+
+<!-- jTinder lib -->
+<script type="text/javascript" src="js/jquery.jTinder.js"></script>
+
+      <script type="text/javascript" src="js/profile.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+<!-- jTinder initialization script -->
+<script>$("#tinderslide").jTinder();</script>
   </body>
 
 </html>

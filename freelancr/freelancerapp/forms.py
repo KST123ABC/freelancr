@@ -5,11 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class UserForm(ModelForm):
     class Meta:
-        model = User
-
-class RegistrationForm(UserCreationForm):
-    class Meta:
-        model = User
+        model = ProfileInfo
         fields = ('image',
                   'identity',
                   'firstName',
@@ -18,9 +14,19 @@ class RegistrationForm(UserCreationForm):
                   'name',
                   'details',
                   'phoneNumber',
-                  'email',
-                  'password',
-                  'confirmPassword'
+                  )
+
+class RegistrationForm(UserCreationForm):
+    class Meta:
+        model = ProfileInfo
+        fields = ('image',
+                  'identity',
+                  'firstName',
+                  'middleInitial',
+                  'lastName',
+                  'name',
+                  'details',
+                  'phoneNumber',
                   )
 
 class LoginForm(ModelForm):
@@ -32,24 +38,20 @@ class LoginForm(ModelForm):
         )
 class FreelancerUpdateForm(ModelForm):
     class Meta:
-        model = User
+        model = ProfileInfo
         fields = (
-        'image1',
+        'image',
         'firstName',
         'middleInitial',
         'lastName',
         'phoneNumber',
-        'email',
-        'password'
         )
 
 class CompanyUpdateForm(ModelForm):
     class Meta:
-        model = User
+        model = ProfileInfo
         fields = (
         'image',
         'name',
         'details',
-        'email',
-        'password'
         )
