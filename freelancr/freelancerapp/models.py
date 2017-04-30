@@ -13,10 +13,10 @@ import os
 
 
 class ProfileInfo(models.Model):
-    user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE),
-    image1 = ImageField(upload_to="media", blank=True, null=True),
-    image2 = ImageField(upload_to="media", blank=True, null=True),
-    image3 = ImageField(upload_to="media", blank=True, null=True),
+    user = models.OneToOneField(User, related_name='profileinfo', on_delete = models.CASCADE)
+    image1 = ImageField(upload_to="media", blank=True, null=True)
+    image2 = ImageField(upload_to="media", blank=True, null=True)
+    image3 = ImageField(upload_to="media", blank=True, null=True)
     #False -- talent, True -- hire
     identity = BooleanField(default = False)
     # Freelancer field
@@ -24,6 +24,8 @@ class ProfileInfo(models.Model):
         max_length=50,
         default="",
         validators=[RegexValidator(regex='[a-zA-Z]$', message='Only letters can be input')],
+        blank = True,
+        null = True
 
     )
     middleInitial = models.CharField(
@@ -31,34 +33,54 @@ class ProfileInfo(models.Model):
         default="",
         validators=[RegexValidator(regex='[a-zA-Z]$', message='Only letters can be input')],
         null = True,
+        blank = True
     )
     lastName = models.CharField(
         max_length=50,
         default="",
         validators=[RegexValidator(regex='[a-zA-Z]$', message='Only letters can be input')],
+        blank = True,
+        null = True
 
     )
     gender = models.CharField(
         max_length=10,
-        default=""
+        default="",
+        blank = True,
+        null = True
     )
     # Company field
     name = models.CharField(
         max_length=50,
         default="",
+        blank = True,
+        null = True
 
     )
     details = models.CharField(
         max_length=500,
         default="",
-        null = True
+        null = True,
+        blank = True
     )
     # Common field
-    phoneNumber = PhoneNumberField()
+    phoneNumber = PhoneNumberField(null = True,
+        blank = True)
     email = models.EmailField(default="")
+    def __str__(self):
+        return str(self.user)
+    def email(self):
+        return self.user.email
+    def is_admin(self):
+        return self.user.is_staff
+    def date_joined(self):
+        return self.user.date_joined
 
 class Skill(models.Model):
     skillName = TextField(primary_key = True)
+
+    def __str__(self):
+        return self.skillName
 
 class UserSkill(models.Model):
     user = models.ForeignKey(ProfileInfo)
